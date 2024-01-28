@@ -20,4 +20,11 @@ const loginUser = (req, res) => {
     res.status(200).send("login");
   } catch (error) {}
 };
-module.exports = { createUser, loginUser };
+const getProducts = (req, res) => {
+  try {
+    res.status(200).json({});
+  } catch (error) {
+    console.log(error);
+  }
+};
+module.exports = { createUser, loginUser, getProducts };
