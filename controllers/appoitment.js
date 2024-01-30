@@ -1,3 +1,4 @@
+const Appointment = require("../models/appoitment");
 const getAllAppointments = (re, res) => {
   try {
   } catch (error) {}
