@@ -1,4 +1,5 @@
 const User = require("../models/users");
+const asyncHandler = required("../midleware/asyncHandler.js");
 const bcrypt = require("bcrypt");
 const bcryptSalt = bcrypt.genSalt(10);
 const createUser = async (req, res) => {
@@ -20,11 +21,8 @@ const loginUser = (req, res) => {
     res.status(200).send("login");
   } catch (error) {}
 };
-const getProducts = (req, res) => {
+const updateUser = (req, res) => {
   try {
-    res.status(200).json({});
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {}
 };
-module.exports = { createUser, loginUser, getProducts };
+module.exports = { createUser, loginUser, updateUser };
