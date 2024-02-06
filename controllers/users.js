@@ -25,10 +25,21 @@ const createUser = asyncHandler(async (req, res) => {
   }
   res.status(201).json({ success: true, message: "User created successfully" });
 });
+//login
 const loginUser = asyncHandler(async (req, res) => {
+  const { email, password } = req.body;
   try {
-    res.status(200).send("login");
-  } catch (error) {}
+    const loginUser = await User.find({ email, password });
+    if (loginUser) {
+      res
+        .status(200)
+        .json({ success: true, message: "user successfully login", res: loginUser.email });
+    } else {
+      return res.status(401).json({ success: false, message: "User not found" });
+    }
+  } catch (error) {
+    res.status(404).json({ message: "Not found" });
+  }
 });
 const updateUser = asyncHandler(async (req, res) => {
   try {
